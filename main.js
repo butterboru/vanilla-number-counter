@@ -1,31 +1,22 @@
-let counter
-let savedNumber = JSON.parse(localStorage.getItem('key'))
-        
-if (savedNumber == null) {
-    counter = 0
-    render()
-} else {
-    counter = savedNumber
-    render()
-}
-
+let counter = 0
+     
 function render() {
-    const phrase = "The running total is: " + counter
-    document.querySelector('#counter').innerText = phrase
-}
-
-function saveCurrentNumber() {
-    localStorage.setItem('key', JSON.stringify(counter))
+    document.querySelector('#secondaryPage').innerText = counter
 }
 
 function decrease() {
     counter = counter - 1
-    saveCurrentNumber()
     render()
 }
 
 function increase() {
     counter = counter + 1
-    saveCurrentNumber()
     render()
+}
+
+function navigate(pageId) {
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active')
+    })
+    document.getElementById(pageId).classList.add('active')
 }

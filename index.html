@@ -5,16 +5,21 @@
 </head>
 
 <body>
-    <h2>Main Page</h2>
-    <div id="counter" ></div>
+    <nav>
+        <button onclick="navigate('mainPage')">Buttons</button>
+        <button onclick="navigate('secondaryPage')">See Current #</button>
+    </nav>
+    
+    <div id="mainPage" class="page">
         <button id="-" onclick="decrease()">-</button>
         <button id="+" onclick="increase()">+</button>
+    </div>
         
-        <div>
-            <a href="./index2.html">Click here to see on another page.</a>
-        </div>
+    <div id="secondaryPage" class="page active">         
+        <div id="counter">0</div>     
+    </div>
 
-        <script src="./main.js"></script>
+    <script src="./main.js"></script>
 </body>
 
 <style>
@@ -23,5 +28,14 @@
         text-align:center;
         margin-top: 10%;
     }   
+    .page {
+        display: none;
+    }
+    .active {
+        display: block;
+    }
+    nav {
+        position: fixed;
+    }
 </style>
 </html>
